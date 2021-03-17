@@ -19,6 +19,9 @@ public class UserCredentials {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
+    @ManyToOne
+    private User user;
+
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_date")

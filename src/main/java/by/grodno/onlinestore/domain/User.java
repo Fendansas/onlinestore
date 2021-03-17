@@ -47,10 +47,9 @@ public class User {
     @Column(name = "place_number")
     private String placeNumber;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(
-            joinColumns = @JoinColumn(name = "u1"),
-            inverseJoinColumns = @JoinColumn(name = "u2"))
+    @OneToMany( mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
     private List<UserCredentials> credentials;
 
     @OneToMany( mappedBy = "user",
