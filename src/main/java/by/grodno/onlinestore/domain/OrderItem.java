@@ -30,6 +30,9 @@ public class OrderItem {
     @OneToOne
     private Product product;
 
+    @ManyToOne
+    private UserOrder userOrder;
+
     public OrderItem(BigDecimal price, @Positive Integer quantity, Product product) {
         this.price = price;
         this.quantity = quantity;

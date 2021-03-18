@@ -20,7 +20,7 @@ import java.util.List;
 @Table(name = "user_order")
 public class UserOrder {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne
@@ -51,14 +51,12 @@ public class UserOrder {
     @NotNull
     @Column(name = "total_price")
     private BigDecimal totalPrice = BigDecimal.ZERO;
-
-    @OneToMany(mappedBy = "order",
-            cascade = CascadeType.ALL,
+    // проблема тут
+    @OneToMany(cascade = CascadeType.ALL,
             orphanRemoval = true)
     private List<OrderItem> items = new ArrayList<>();
 
     private OrderStatus status = OrderStatus.PROCESSING;
-
 
 
 }
