@@ -19,7 +19,7 @@ import java.util.List;
 @Table(name = "user_table")
 public class User {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "first_name")
@@ -29,23 +29,14 @@ public class User {
     private String lastName;
 
     @Email
-    @Column(unique = true,name = "email")
+    @Column(unique = true, name = "email")
     private String email;
 
-    @Column(name = "country")
-    private String country;
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
-    @Column(name = "city")
-    private String city;
-
-    @Column(name = "street")
-    private String street;
-
-    @Column(name = "house_number")
-    private String houseNumber;
-
-    @Column(name = "place_number")
-    private String placeNumber;
+    @OneToOne
+    private Address address;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
@@ -53,14 +44,10 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "u2"))
     private List<UserCredentials> credentials;
 
-    @OneToMany( mappedBy = "user",
+    @OneToMany(mappedBy = "user",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
     private List<UserOrder> orders = new ArrayList<>();
-
-
-
-
 
 
 }

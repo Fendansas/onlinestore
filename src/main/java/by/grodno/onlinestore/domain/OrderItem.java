@@ -31,6 +31,7 @@ public class OrderItem {
     private Product product;
 
     @ManyToOne
+
     private UserOrder userOrder;
 
     public OrderItem(BigDecimal price, @Positive Integer quantity, Product product) {

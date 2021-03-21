@@ -32,20 +32,8 @@ public class UserOrder {
     private Date createdDate;
 
     // адрес доставки----------------- может стоит вынести в отдельный класс?
-    @Column(name = "country")
-    private String country;
-
-    @Column(name = "city")
-    private String city;
-
-    @Column(name = "street")
-    private String street;
-
-    @Column(name = "house_number")
-    private String houseNumber;
-
-    @Column(name = "place_number")
-    private String placeNumber;
+    @OneToOne
+    private Address address;
     //-------------------------------
 
     @NotNull
