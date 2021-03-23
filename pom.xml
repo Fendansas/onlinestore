@@ -18,6 +18,7 @@
         <hiber.version>5.4.23.Final</hiber.version>
         <hiber-validator.version>6.1.6.Final</hiber-validator.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven-checkstyle-plugin.version>2.17</maven-checkstyle-plugin.version>
     </properties>
 
     <parent>
@@ -155,8 +156,27 @@
 
     </dependencies>
 
-
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>${maven-checkstyle-plugin.version}</version>
+                <configuration>
+                    <configLocation>build-tools/quality/checkstyle/checkstyle.xml</configLocation>
+                    <suppressionsLocation>${basedir}/build-tools/quality/checkstyle/checkstyle-suppress.xml
+                    </suppressionsLocation>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
