@@ -1,12 +1,12 @@
-package by.grodno.onlinestore.domain;
+package com.github.fendansas.onlinestore.domain;
+
+import java.util.Date;
+import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
-
-import javax.persistence.*;
-import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -16,7 +16,7 @@ import java.util.Date;
 public class UserCredentials {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne

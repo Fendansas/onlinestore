@@ -1,4 +1,4 @@
-package by.grodno.onlinestore.domain;
+package com.github.fendansas.onlinestore.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 @Table(name = "order_item")
 public class OrderItem {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotNull
@@ -24,7 +24,7 @@ public class OrderItem {
     private BigDecimal price;
 
     @Positive
-    @Column(nullable = false,name = "quantity")
+    @Column(nullable = false, name = "quantity")
     private Integer quantity;
 
     @OneToOne

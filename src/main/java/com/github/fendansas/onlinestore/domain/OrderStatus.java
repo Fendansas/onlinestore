@@ -1,4 +1,4 @@
-package by.grodno.onlinestore.domain;
+package com.github.fendansas.onlinestore.domain;
 
 public enum OrderStatus {
     COMPLETED,

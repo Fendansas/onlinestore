@@ -1,4 +1,4 @@
-package by.grodno.onlinestore.domain;
+package com.github.fendansas.onlinestore.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class Address {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "country")
@@ -31,8 +31,6 @@ public class Address {
 
     @Column(name = "place_number")
     private String placeNumber;
-
-
 
 
 }

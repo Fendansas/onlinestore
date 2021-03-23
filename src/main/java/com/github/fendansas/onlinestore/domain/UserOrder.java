@@ -1,10 +1,9 @@
-package by.grodno.onlinestore.domain;
+package com.github.fendansas.onlinestore.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
-
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -31,15 +30,13 @@ public class UserOrder {
     @Column(name = "created_date")
     private Date createdDate;
 
-    // адрес доставки----------------- может стоит вынести в отдельный класс?
     @OneToOne
     private Address address;
-    //-------------------------------
 
     @NotNull
     @Column(name = "total_price")
     private BigDecimal totalPrice = BigDecimal.ZERO;
-    // проблема тут
+
     @OneToMany(cascade = CascadeType.ALL,
             orphanRemoval = true)
     private List<OrderItem> items = new ArrayList<>();

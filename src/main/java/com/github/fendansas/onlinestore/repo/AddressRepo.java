@@ -1,7 +1,6 @@
-package by.grodno.onlinestore.repo;
+package com.github.fendansas.onlinestore.repo;
 
-import by.grodno.onlinestore.domain.Address;
-import by.grodno.onlinestore.domain.OrderItem;
+import com.github.fendansas.onlinestore.domain.Address;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AddressRepo extends JpaRepository<Address, Integer> {

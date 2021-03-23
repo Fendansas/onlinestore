@@ -1,4 +1,4 @@
-package by.grodno.onlinestore.domain;
+package com.github.fendansas.onlinestore.domain;
 
 
 import lombok.AllArgsConstructor;
@@ -48,6 +48,4 @@ public class User {
             cascade = CascadeType.ALL,
             orphanRemoval = true)
     private List<UserOrder> orders = new ArrayList<>();
-
-
 }

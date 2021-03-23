@@ -1,6 +1,6 @@
-package by.grodno.onlinestore.repo;
+package com.github.fendansas.onlinestore.repo;
 
-import by.grodno.onlinestore.domain.User;
+import com.github.fendansas.onlinestore.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
