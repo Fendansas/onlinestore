@@ -33,5 +33,10 @@ public class Product {
     @Column(name = "in_stock")
     private Integer inStock;
 
-
+    public Product(String name, String description, @NotNull BigDecimal price, Integer inStock) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.inStock = inStock;
+    }
 }
