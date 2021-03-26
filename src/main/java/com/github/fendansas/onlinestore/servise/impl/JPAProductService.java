@@ -22,6 +22,11 @@ public class JPAProductService implements ProductService, InitializingBean {
     }
 
     @Override
+    public void addProduct(List<Product> products) {
+
+    }
+
+    @Override
     public void afterPropertiesSet() throws Exception {
 
     }
