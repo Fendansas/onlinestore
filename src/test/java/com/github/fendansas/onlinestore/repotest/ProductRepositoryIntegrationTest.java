@@ -1,7 +1,7 @@
 package com.github.fendansas.onlinestore.repotest;
 
 import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
-//import static org.junit.Assert.assertNotNull;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.math.BigDecimal;
@@ -14,23 +14,16 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
-
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class ProductRepositoryIntegrationTest {
 
     @Autowired
     private ProductRepo repo;
-
-    @Test
-    public void testRepoPresent() {
-        assertNotNull(repo);
-    }
 
     @BeforeEach
     public void setUpDB() {

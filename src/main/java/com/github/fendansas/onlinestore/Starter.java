@@ -7,7 +7,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableScheduling
-//@EnableConfigurationProperties(EmailProperties.class)
 public class Starter {
 
     public static void main(String[] args) {
