@@ -22,6 +22,11 @@ public class JPAProductService implements ProductService, InitializingBean {
     }
 
     @Override
+    public Product getProduct(Integer id) {
+        return repo.getOne(id);
+    }
+
+    @Override
     public void addProduct(List<Product> products) {
 
     }
