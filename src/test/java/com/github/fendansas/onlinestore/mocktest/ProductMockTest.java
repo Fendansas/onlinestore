@@ -9,9 +9,12 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.security.core.parameters.P;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -36,6 +39,18 @@ public class ProductMockTest {
                         , new Product("2", "ewew", new BigDecimal(14), 5))
                 .collect(Collectors.toList()));
         assertEquals(2, productService.getProducts().size());
+    }
+
+    @Test
+    public void getProductTest2() {
+        Product product =  new Product("1", "212", new BigDecimal(12), 3);
+        Product product2 =  new Product("21", "2212", new BigDecimal(22), 23);
+        List list = new ArrayList();
+        list.add(product);
+        list.add(product2);
+        when(productRepo.findAll()).thenReturn(list);
+        assertEquals(2, productService.getProducts().size());
+
     }
 
 
