@@ -6,7 +6,7 @@
 
     <groupId>com.github.fendansas.onlinestore</groupId>
     <artifactId>online</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>online store</name>
     <url>http://maven.apache.org</url>
@@ -19,6 +19,7 @@
         <hiber-validator.version>6.1.6.Final</hiber-validator.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-checkstyle-plugin.version>2.17</maven-checkstyle-plugin.version>
+        <jacoco-maven.plugin.version>0.8.6</jacoco-maven.plugin.version>
     </properties>
 
     <parent>
@@ -175,6 +176,30 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco-maven.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+
+
         </plugins>
     </build>
 
