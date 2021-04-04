@@ -6,6 +6,7 @@ import com.github.fendansas.onlinestore.repo.ProductRepo;
 import com.github.fendansas.onlinestore.servise.ProductService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,6 +22,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.booleanThat;
 import static org.mockito.Mockito.when;
@@ -59,22 +61,24 @@ public class ProductMockTest {
 
     }
 
+
     @Test
     public void getProductById() {
-
         Product product = new Product(1, "1", "212", new BigDecimal(12), 3);
-        Product product2 = new Product(2, "21", "2212", new BigDecimal(22), 23);
+        Product product2 = new Product(2, "12", "2122", new BigDecimal(122), 23);
         List list = new ArrayList();
         list.add(product);
-        list.add(product2);
-        Integer id = product.getId();
-        when(productRepo.findById(id)).thenReturn(Optional.of(product));
+        productRepo.save(product);
+        when(productService.getProductById(1)).thenReturn(product);
+        Product product1 = productService.getProductById(1);
+        assertEquals("1", product1.getName());
+        assertEquals(1, product1.getId());
 
     }
 
+
     @Test
     public void addProduct() {
-
 
     }
 

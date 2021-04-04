@@ -22,7 +22,7 @@ public class JPAProductService implements ProductService, InitializingBean {
     }
 
     @Override
-    public Product getProduct(Integer id) {
+    public Product getProductById(Integer id) {
         return repo.getOne(id);
     }
 

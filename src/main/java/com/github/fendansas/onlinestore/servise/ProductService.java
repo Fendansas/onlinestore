@@ -8,7 +8,7 @@ public interface ProductService {
 
     List<Product> getProducts();
 
-    Product getProduct(Integer id);
+    Product getProductById(Integer id);
 
     void addProduct(Product product);
 
