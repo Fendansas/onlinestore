@@ -57,10 +57,7 @@ public class ProductMockTest {
         when(productRepo.findAll()).thenReturn(list);
         assertEquals(1, productService.getProducts().size());
         assertEquals(productService.getProducts().get(0), product);
-
-
     }
-
 
     @Test
     public void getProductById() {
@@ -75,8 +72,6 @@ public class ProductMockTest {
         assertEquals(product.getName(), product1.getName());
         assertEquals(1, product1.getId());
         assertNotNull(product1);
-
-
     }
 
 
@@ -84,23 +79,6 @@ public class ProductMockTest {
     public void addProduct() {
 
     }
-
-
-    //repo.getOne(id)
-
-//    @Test
-//    public void getProductById(){
-//        Product product =  new Product("1", "212", new BigDecimal(12), 3);
-//        Product product2 =  new Product("21", "2212", new BigDecimal(22), 23);
-//        List list = new ArrayList();
-//        list.add(product);
-//        list.add(product2);
-//        Integer id = product.getId();
-//        when(productRepo.findById(id));
-//        assertEquals(product,productService.getProduct(id));
-//
-//
-//    }
 
 
 }
