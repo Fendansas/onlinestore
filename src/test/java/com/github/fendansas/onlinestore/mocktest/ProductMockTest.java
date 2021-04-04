@@ -68,11 +68,14 @@ public class ProductMockTest {
         Product product2 = new Product(2, "12", "2122", new BigDecimal(122), 23);
         List list = new ArrayList();
         list.add(product);
+        list.add(product2);
         productRepo.save(product);
         when(productService.getProductById(1)).thenReturn(product);
         Product product1 = productService.getProductById(1);
-        assertEquals("1", product1.getName());
+        assertEquals(product.getName(), product1.getName());
         assertEquals(1, product1.getId());
+        assertNotNull(product1);
+
 
     }
 
