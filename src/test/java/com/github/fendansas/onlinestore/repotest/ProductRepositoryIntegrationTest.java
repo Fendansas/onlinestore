@@ -41,4 +41,6 @@ public class ProductRepositoryIntegrationTest {
         assertEquals("ak104", findByName.getName());
     }
 
+
+
 }
