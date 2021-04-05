@@ -1,9 +1,9 @@
 language: java
-
+sudo: false # faster builds
 
 jdk:
   - oraclejdk8
 
 
-script:
-  - mvn clean verify sonar:sonar -Pcoverage
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
