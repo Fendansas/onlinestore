@@ -1,9 +1,8 @@
+dist: xenial
 language: java
-sudo: false # faster builds
-
 jdk:
-  - oraclejdk8
-
+  - openjdk8
+  - openjdk11
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
