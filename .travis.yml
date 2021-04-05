@@ -1,8 +1,13 @@
-dist: xenial
 language: java
 jdk:
-  - oraclejdk8
-  - oraclejdk11
+  - openjdk8
+  - openjdk15
 
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
+addons:
+  sonarcloud:
+    organization: "fendansas"
+    token:
+      secure: "FrZe84ilrCzS7zm1FwyzbjqEelrcLgUeiz/k4rN+g1WDevJgdXPFl/aeamkSChRNY7UF8i15xt5V7qhul4NdV3Kkw49mx7tNOi5mmF00gC1wV0PpwCrlUVrMzVpLVYFDkR7i5HHjcyUEzqrZi3xI7gSOdv5Wl6xiPyBRXmIU1JaiueAJQQtsDWecHMyZrTLf1kIubmSsFxjAE9V20vbxjn7eU5lk1D4jU+7pkq4l70lv8vCjvJUXOcyj2ZYYMOqI4kQ6VNPiEDAIncS12UghTe5CNX7EAs7R1qzWhRREMLpZuTMRQu+wONo+uemn0XgmeLuTMgyOYAsSR0P+Tn951IrE3YR35ns1L0p4g9thT113A2yrSMNl9yufLyKSY8iB+efuMYXEu7I6rFwwx9BZ6ytHyYivKNHGjCslH83FdZATsEOrqX0QflNrCAfu8HfXp9QKg8vXxTF0saz4oxgKm8CD5FmaHwzFa8iyarwvr6fyRlGCpR5B0b9Lg8QHm5cXbrjs7iawDYfw810dEdkfspThHv59QYb8gGDGIS95rgeDELpUzXmVcF74iH1y82pvuoLDzVZMonzkm5GfRRhWrkeijJWj/7WuG0tyYvGZDuv5AKBBweF8qZbKs80mPCouexRNK2Eo2ZW6j2y/4II89kEOB41m33wSzqMMRY3OztY="
+
+script:
+  - mvn clean verify sonar:sonar -Pcoveragel -s https://codecov.io/bash)
