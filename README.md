@@ -1,2 +1,1 @@
-![GitHub]https://img.shields.io/azure-devops/coverage/github/fendansas/onlinestore
- 
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/fendansas/onlinestore?color=%2378863b)

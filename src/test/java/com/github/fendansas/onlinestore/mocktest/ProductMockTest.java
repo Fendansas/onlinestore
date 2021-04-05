@@ -59,7 +59,7 @@ public class ProductMockTest {
         assertEquals(productService.getProducts().get(0), product);
     }
 
-    @Test
+    @Test //test
     public void getProductById() {
         Product product = new Product(1, "1", "212", new BigDecimal(12), 3);
         Product product2 = new Product(2, "12", "2122", new BigDecimal(122), 23);
