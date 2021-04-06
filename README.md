@@ -2,7 +2,7 @@
 ![GitHub](https://img.shields.io/github/license/Fendansas/onlinestore)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/fendansas/onlinestore?color=%2378863b)
 
-
+## I'm learning Java and this is my project
 
 ### Languages and Tools:
 ![Java](https://img.shields.io/badge/-Java-090909?style=for-the-badge&logo=java&logoColor=47C5FB)
