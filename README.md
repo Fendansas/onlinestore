@@ -6,7 +6,7 @@
 ### Languages and Tools:
 ![Java](https://img.shields.io/badge/-Java-090909?style=for-the-badge&logo=java&logoColor=47C5FB)
 ![Maven](https://img.shields.io/badge/-Maven-090909?style=for-the-badge&logo=maven&logoColor=097CDB)
-![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-090909?style=for-the-badge&logo=sql&logoColor=F8C52C)
+![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-090909?style=for-the-badge&logo=mysql&logoColor=F8C52C)
 ![Spring Boot](https://img.shields.io/badge/-SpringBoot-090909?style=for-the-badge&logo=spring&logoColor=F88C00)
 
 
