@@ -5,6 +5,7 @@ import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import com.github.fendansas.onlinestore.repo.ProductRepo;
 import com.github.fendansas.onlinestore.domain.Product;
@@ -28,7 +29,9 @@ public class ProductRepositoryIntegrationTest {
     @BeforeEach
     public void setUpDB() {
         Product ak104 = new Product("ak104", "sas", new BigDecimal(1500), 5);
+        Product ak105 = new Product("ak105", "sas1", new BigDecimal(1510), 5);
         repo.save(ak104);
+        repo.save(ak105);
     }
 
     @Test
@@ -40,6 +43,19 @@ public class ProductRepositoryIntegrationTest {
         assertNotNull(findByName);
         assertEquals("ak104", findByName.getName());
     }
+
+    @Test
+    public void testCreate_findAll() {
+        // WHEN
+        List products = repo.findAll();
+
+        // THEN
+        assertNotNull(products);
+        assertEquals(2, products.size());
+    }
+
+
+
 
 
 
