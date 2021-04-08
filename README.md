@@ -17,6 +17,7 @@ These instructions will get you a copy of the project up and running on your loc
  
  ### Prerequisites
  ✗ go version
+ 
  java version "1.8.0_181"
  
 
