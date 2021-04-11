@@ -20,6 +20,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-checkstyle-plugin.version>2.17</maven-checkstyle-plugin.version>
         <jacoco-maven.plugin.version>0.8.6</jacoco-maven.plugin.version>
+        <checkstyle.config.location>properties/checkstyle-configuration.xml</checkstyle.config.location>
     </properties>
 
     <parent>
@@ -164,9 +165,8 @@
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>${maven-checkstyle-plugin.version}</version>
                 <configuration>
-                    <configLocation>build-tools/quality/checkstyle/checkstyle.xml</configLocation>
-                    <suppressionsLocation>${basedir}/build-tools/quality/checkstyle/checkstyle-suppress.xml
-                    </suppressionsLocation>
+<!--                    <configLocation>build-tools/quality/checkstyle/checkstyle.xml</configLocation>-->
+                    <suppressionsLocation>properties/checkstyle-configuration.xml</suppressionsLocation>
                 </configuration>
                 <executions>
                     <execution>
