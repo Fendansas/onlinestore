@@ -1,8 +1,15 @@
 language: java
-jdk: oraclejdk8
 
-script:
-  - ./mvnw clean install
+dist: xenial
+
+# Cobertura is not supported in JDK11 so you must downgrade the JDK that Travis uses if you want to use Cobertura with Travis.
+# See https://github.com/cobertura/cobertura/issues/381
+jdk:
+  - openjdk8
+
+
+
+after_success:
   - bash <(curl -s https://codecov.io/bash)
 
 env:
