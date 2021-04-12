@@ -18,7 +18,7 @@
         <hiber.version>5.4.23.Final</hiber.version>
         <hiber-validator.version>6.1.6.Final</hiber-validator.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven-checkstyle-plugin.version>2.17</maven-checkstyle-plugin.version>
+<!--        <maven-checkstyle-plugin.version>2.17</maven-checkstyle-plugin.version>-->
         <jacoco-maven.plugin.version>0.8.6</jacoco-maven.plugin.version>
 
     </properties>
@@ -163,7 +163,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-
+                <version>5.48.0</version>
                 <executions>
                     <execution>
                         <phase>verify</phase>
@@ -183,7 +183,7 @@
                     <dependency>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-checkstyle-plugin</artifactId>
-
+                        <version>5.48.0</version>
                         <scope>compile</scope>
                     </dependency>
                 </dependencies>
