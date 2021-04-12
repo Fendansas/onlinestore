@@ -158,6 +158,7 @@
 
     </dependencies>
 
+
     <build>
         <plugins>
             <plugin>
@@ -165,8 +166,8 @@
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>${maven-checkstyle-plugin.version}</version>
                 <configuration>
-                    <configLocation>build-tools/quality/checkstyle/checkstyle.xml</configLocation>
-                    <suppressionsLocation>build-tools/quality/checkstyle/checkstyle-suppress.xml</suppressionsLocation>
+                    <configLocation>checkstyle.xml</configLocation>
+                    <suppressionsLocation>checkstyle-suppress.xml</suppressionsLocation>
                 </configuration>
                 <executions>
                     <execution>
