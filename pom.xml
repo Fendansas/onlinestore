@@ -18,7 +18,7 @@
         <hiber.version>5.4.23.Final</hiber.version>
         <hiber-validator.version>6.1.6.Final</hiber-validator.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven-checkstyle-plugin.version>8.41.1</maven-checkstyle-plugin.version>
+<!--        <maven-checkstyle-plugin.version>8.41.1</maven-checkstyle-plugin.version>-->
         <jacoco-maven.plugin.version>0.8.6</jacoco-maven.plugin.version>
 
     </properties>
@@ -162,38 +162,19 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>8.41.1</version>
+                <version>3.0.0</version>
+                <configuration>
+                    <configLocation>checkstyle.xml</configLocation>
+                </configuration>
                 <executions>
                     <execution>
-                        <phase>verify</phase>
                         <goals>
                             <goal>check</goal>
                         </goals>
-                        <configuration>
-                            <configLocation>src/main/resources/checkstyle.xml</configLocation>
-                            <encoding>UTF-8</encoding>
-                            <consoleOutput>true</consoleOutput>
-                            <failsOnError>true</failsOnError>
-                            <linkXRef>false</linkXRef>
-                        </configuration>
                     </execution>
                 </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-checkstyle-plugin</artifactId>
-                        <version>8.41.1</version>
-                        <scope>compile</scope>
-                    </dependency>
-                </dependencies>
-                <configuration>
-                    <configLocation>src/main/resources/checkstyle.xml</configLocation>
-                    <encoding>UTF-8</encoding>
-                    <consoleOutput>true</consoleOutput>
-                    <failsOnError>true</failsOnError>
-                    <linkXRef>false</linkXRef>
-                </configuration>
             </plugin>
 
             <plugin>
