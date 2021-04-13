@@ -74,11 +74,4 @@ public class ProductMockTest {
         assertNotNull(product1);
     }
 
-
-    @Test
-    public void addProduct() {
-
-    }
-
-
 }
