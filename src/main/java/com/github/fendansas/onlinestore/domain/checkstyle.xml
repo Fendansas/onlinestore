@@ -21,10 +21,10 @@
 
 <module name="Checker">
     <!--
-        If you set the basedir property below, then all reported file
-        names will be relative to the specified directory. See
-        http://checkstyle.sourceforge.net/5.x/config.html#Checker
-        <property name="basedir" value="${basedir}"/>
+    If you set the basedir property below, then all reported file
+    names will be relative to the specified directory. See
+    http://checkstyle.sourceforge.net/5.x/config.html#Checker
+    <property name="basedir" value="${basedir}"/>
     -->
 
     <property name="fileExtensions" value="java, properties, xml"/>
@@ -35,22 +35,27 @@
         <property name="severity" value="ignore"/>
     </module>
 
+<!--    Проверяет, заканчиваются ли файлы новой строкой.-->
     <!-- Checks whether files end with a new line.                        -->
     <!-- See http://checkstyle.sf.net/config_misc.html#NewlineAtEndOfFile -->
     <module name="NewlineAtEndOfFile"/>
 
+<!--    Проверяет, что файлы свойств содержат одинаковые ключи.-->
     <!-- Checks that property files contain the same keys.         -->
     <!-- See http://checkstyle.sf.net/config_misc.html#Translation -->
     <module name="Translation"/>
 
+<!--    Проверяет соответствие размерам.-->
     <!-- Checks for Size Violations.                    -->
     <!-- See http://checkstyle.sf.net/config_sizes.html -->
     <module name="FileLength"/>
 
+<!--    Проверяет наличие пробелов-->
     <!-- Checks for whitespace                               -->
     <!-- See http://checkstyle.sf.net/config_whitespace.html -->
     <module name="FileTabCharacter"/>
 
+<!--    Разные прочие проверки.-->
     <!-- Miscellaneous other checks.                   -->
     <!-- See http://checkstyle.sf.net/config_misc.html -->
     <module name="RegexpSingleline">
@@ -60,6 +65,7 @@
         <property name="message" value="Line has trailing spaces."/>
     </module>
 
+<!--    Проверяет заголовки-->
     <!-- Checks for Headers                                -->
     <!-- See http://checkstyle.sf.net/config_header.html   -->
     <!-- <module name="Header"> -->
@@ -105,6 +111,7 @@
             <property name="processJavadoc" value="false"/>
         </module>
 
+<!--        Проверяет соответствие размерам.-->
         <!-- Checks for Size Violations.                    -->
         <!-- See http://checkstyle.sf.net/config_sizes.html -->
         <module name="LineLength">
@@ -114,6 +121,7 @@
         <module name="MethodLength"/>
         <module name="ParameterNumber"/>
 
+<!--        Проверяет наличие пробелов-->
         <!-- Checks for whitespace                               -->
         <!-- See http://checkstyle.sf.net/config_whitespace.html -->
         <module name="EmptyForIteratorPad"/>
@@ -127,10 +135,12 @@
         <module name="WhitespaceAfter"/>
         <module name="WhitespaceAround"/>
 
+<!--        Проверки модификаторов-->
         <!-- Modifier Checks                                    -->
         <!-- See http://checkstyle.sf.net/config_modifiers.html -->
         <module name="ModifierOrder"/>
         <module name="RedundantModifier"/>
+
 
         <!-- Checks for blocks. You know, those {}'s         -->
         <!-- See http://checkstyle.sf.net/config_blocks.html -->
@@ -140,6 +150,7 @@
         <module name="NeedBraces"/>
         <module name="RightCurly"/>
 
+<!--        Проверяет общие проблемы с кодированием-->
         <!-- Checks for common coding problems               -->
         <!-- See http://checkstyle.sf.net/config_coding.html -->
         <module name="EmptyStatement"/>
@@ -157,6 +168,7 @@
         <module name="SimplifyBooleanExpression"/>
         <module name="SimplifyBooleanReturn"/>
 
+<!--        Проверки на дизайн класса-->
         <!-- Checks for class design                         -->
         <!-- See http://checkstyle.sf.net/config_design.html -->
 
@@ -172,7 +184,7 @@
         <!-- Miscellaneous other checks.                   -->
         <!-- See http://checkstyle.sf.net/config_misc.html -->
         <module name="ArrayTypeStyle"/>
-        <module name="FinalParameters"/>
+<!--        <module name="FinalParameters"/>-->
         <module name="TodoComment"/>
         <module name="UpperEll"/>
 
