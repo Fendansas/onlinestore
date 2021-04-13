@@ -26,22 +26,22 @@ public class Product {
     private Integer id;
 
     @Column(name = "name")
-    final private String name = null;
+    private String name;
 
     @Column(name = "description")
-    final private String description = null;
+    private String description;
 
     @NotNull
     @Column(name = "price")
-    final private BigDecimal price = new BigDecimal(0);
+    private BigDecimal price;
 
     @Column(name = "in_stock")
-    final private Integer inStock = null;
+    private Integer inStock;
 
-//    public Product(String name, String description, @NotNull BigDecimal price, Integer inStock) {
-//        this.name = name;
-//        this.description = description;
-//        this.price = price;
-//        this.inStock = inStock;
-//    }
+    public Product(String name, String description, @NotNull BigDecimal price, Integer inStock) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.inStock = inStock;
+    }
 }
