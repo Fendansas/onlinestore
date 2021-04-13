@@ -138,8 +138,8 @@
 <!--        Проверки модификаторов-->
         <!-- Modifier Checks                                    -->
         <!-- See http://checkstyle.sf.net/config_modifiers.html -->
-<!--        <module name="ModifierOrder"/>-->
-<!--        <module name="RedundantModifier"/>-->
+        <module name="ModifierOrder"/>
+        <module name="RedundantModifier"/>
 
 
         <!-- Checks for blocks. You know, those {}'s         -->
@@ -176,10 +176,10 @@
         <!--<property name="ignoredAnnotations" value="Override, Test"/>-->
         <!--</module>-->
 
-        <module name="FinalClass"/>
-        <module name="HideUtilityClassConstructor"/>
-        <module name="InterfaceIsType"/>
-        <module name="VisibilityModifier"/>
+<!--        <module name="FinalClass"/>-->
+<!--        <module name="HideUtilityClassConstructor"/>-->
+<!--        <module name="InterfaceIsType"/>-->
+<!--        <module name="VisibilityModifier"/>-->
 
         <!-- Miscellaneous other checks.                   -->
         <!-- See http://checkstyle.sf.net/config_misc.html -->
