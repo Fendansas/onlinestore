@@ -23,7 +23,7 @@ addons:
 
 before_script:
   - psql -c "create database aries;" -U postgres // your database name
-  - sudo -u postgres psql -c "ALTER ROLE postgres WITH password 'postgres'" // if your password is different from 'postgres` use that one here
+  - sudo -u postgres psql -c "ALTER ROLE postgres WITH password '070809'" // if your password is different from 'postgres` use that one here
 
 services:
   - postgresql
