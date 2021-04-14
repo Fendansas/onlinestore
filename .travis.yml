@@ -16,14 +16,8 @@ after_success:
 env:
   global:
     - CODECOV_TOKEN=7aa9bb93-3a64-4efc-92f1-97e104697b0a
-sudo: enabled
-
-addons:
-  postgresql: "11.8" // change "9.5" for your postgres specific version
-
-before_script:
-  - psql -c "create database aries;" -U postgres // your database name
-  - sudo -u postgres psql -c "ALTER ROLE postgres WITH password '070809'" // if your password is different from 'postgres` use that one here
-
 services:
   - postgresql
+
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
