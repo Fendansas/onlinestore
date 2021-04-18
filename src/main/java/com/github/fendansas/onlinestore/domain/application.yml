@@ -1,0 +1,13 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  data:
+    postgresql:
+      database: productdb
+      host: localhost
+      port: 8080
+      username: 'postgres'
+      password: '070809'
