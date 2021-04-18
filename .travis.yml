@@ -16,13 +16,15 @@ after_success:
 env:
   global:
     - CODECOV_TOKEN=7aa9bb93-3a64-4efc-92f1-97e104697b0a
-    - PGPORT=5432
+    - PGPORT=5433
     - PGUSER=travis
 services:
   - postgresql
 
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
+  -
   addons:
     postgresql: "9.5"
 
