@@ -26,9 +26,9 @@ before_script:
   - cp config/database.yml.travis config/database.yml
 
 addons:
-  postgresql: '11.1'
+  postgresql: '9.4'
   apt:
     packages:
-      - postgresql-server-dev-11.1
+      - postgresql-server-dev-9.4
 
 
