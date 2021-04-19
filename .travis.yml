@@ -22,9 +22,9 @@ services:
   - postgresql
 
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
+  - psql -c 'create database productdb;' -U postgres
   - cp config/database.yml.travis config/database.yml
-  -
+
   addons:
     postgresql: "9.5"
 
