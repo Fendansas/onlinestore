@@ -23,7 +23,7 @@ services:
 
 before_script:
   - psql -c 'create database productdb;' -U postgres
-  - cp config/database.yml.travis config/database.yml
+#  - cp config/database.yml.travis config/database.yml
 
 addons:
   postgresql: '9.4'
