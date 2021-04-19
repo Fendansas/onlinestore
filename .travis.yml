@@ -16,7 +16,7 @@ after_success:
 env:
   global:
     - CODECOV_TOKEN=7aa9bb93-3a64-4efc-92f1-97e104697b0a
-    - PGPORT=5433
+    - PGPORT=5432
     - PGUSER=travis
 services:
   - postgresql
@@ -25,7 +25,10 @@ before_script:
   - psql -c 'create database productdb;' -U postgres
   - cp config/database.yml.travis config/database.yml
 
-  addons:
-    postgresql: "9.5"
+addons:
+  postgresql: '11.1'
+  apt:
+    packages:
+      - postgresql-server-dev-11.1
 
 
