@@ -61,6 +61,7 @@ public class ProductMockTest {
         list.add(product);
         list.add(product2);
         productRepo.save(product);
+        productRepo.save(product2);
         when(productService.getProductById(1)).thenReturn(product);
         Product product1 = productService.getProductById(1);
         assertEquals(product.getName(), product1.getName());
@@ -68,4 +69,11 @@ public class ProductMockTest {
         assertNotNull(product1);
     }
 
+    @Test
+    public void isProductInStockTest() {
+        Product product = new Product(1, "1", "212", new BigDecimal(12), 3);
+        Boolean inSock = productService.isProductInStock(product,2);
+        assertEquals(true, inSock);
+
+    }
 }

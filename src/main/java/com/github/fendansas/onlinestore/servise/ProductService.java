@@ -12,7 +12,7 @@ public interface ProductService {
 
     void addProduct(Product product);
 
-    Boolean isProductInStock(Integer id, Integer inStockQuantity);
+    Boolean isProductInStock(Product product, Integer quantityInOrder);
 
 
 }
