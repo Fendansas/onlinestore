@@ -36,12 +36,12 @@ public class Product {
     private BigDecimal price;
 
     @Column(name = "in_stock")
-    private Integer inStock;
+    private Integer inStockQuantity;
 
-    public Product(String name, String description, @NotNull BigDecimal price, Integer inStock) {
+    public Product(String name, String description, @NotNull BigDecimal price, Integer inStockQuantity) {
         this.name = name;
         this.description = description;
         this.price = price;
-        this.inStock = inStock;
+        this.inStockQuantity = inStockQuantity;
     }
 }
