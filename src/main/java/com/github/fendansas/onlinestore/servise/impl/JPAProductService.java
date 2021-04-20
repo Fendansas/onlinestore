@@ -31,7 +31,8 @@ public class JPAProductService implements ProductService, InitializingBean {
         repo.save(product);
     }
 
-    //получаем Id и количество продуктов в заказе. Убеждаемся что > 0 и что количесство в заказе => кол-во на складе
+    //получаем Id и количество продуктов в заказе.
+    //Убеждаемся что > 0 и что количесство в заказе => кол-во на складе
     @Override
     public Boolean isProductInStock(Product product, Integer quantityInOrder) {
         if (product.getInStockQuantity() > 0 && product.getInStockQuantity() >= quantityInOrder) {
@@ -42,6 +43,5 @@ public class JPAProductService implements ProductService, InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-
     }
 }

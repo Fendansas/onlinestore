@@ -38,7 +38,8 @@ public class Product {
     @Column(name = "in_stock")
     private Integer inStockQuantity;
 
-    public Product(String name, String description, @NotNull BigDecimal price, Integer inStockQuantity) {
+    public Product(String name, String description, @NotNull BigDecimal price,
+                   Integer inStockQuantity) {
         this.name = name;
         this.description = description;
         this.price = price;
