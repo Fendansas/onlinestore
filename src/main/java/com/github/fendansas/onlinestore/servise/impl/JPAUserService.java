@@ -11,11 +11,11 @@ import java.util.List;
 public class JPAUserService implements UserService, InitializingBean {
 
     @Autowired
-    UserRepo userRepo;
+    private UserRepo userRepo;
 
     @Override
     public List<User> getUsers() {
-        return null;
+        return userRepo.findAll();
     }
 
     @Override

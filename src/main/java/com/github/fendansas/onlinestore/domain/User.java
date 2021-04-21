@@ -60,4 +60,17 @@ public class User {
             cascade = CascadeType.ALL,
             orphanRemoval = true)
     private List<UserOrder> orders = new ArrayList<>();
+
+    public User(String firstName, String lastName, @Email String email,
+                String phoneNumber, Address address,
+                List<UserCredentials> credentials,
+                List<UserOrder> orders) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.credentials = credentials;
+        this.orders = orders;
+    }
 }

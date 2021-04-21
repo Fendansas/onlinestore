@@ -31,7 +31,7 @@ public class JPAProductService implements ProductService, InitializingBean {
         repo.save(product);
     }
 
-    //получаем Id и количество продуктов в заказе.
+    //продукт и количество продуктов в заказе.
     //Убеждаемся что > 0 и что количесство в заказе => кол-во на складе
     @Override
     public Boolean isProductInStock(Product product, Integer quantityInOrder) {
