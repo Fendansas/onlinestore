@@ -43,12 +43,12 @@ public class UserMockTest {
 //    }
     @Test
     public void getUserTest(){
-//        User user = new User("sas","ses","fendansa@mail.ru",
-//                "+37644584874",new Address(),
-//                null, null);
-//        User user1 = new User("s2as","se2s",
-//                "fe2ndansa@mail.ru","+376244584874",
-//                new Address(),null, null);
+        User user = new User("sas","ses","fendansa@mail.ru",
+                "+37644584874",new Address(),
+                null, null);
+        User user1 = new User("s2as","se2s",
+                "fe2ndansa@mail.ru","+376244584874",
+                new Address(),null, null);
 //        List list = new ArrayList();
 //        list.add(user);
 //        list.add(user1);
