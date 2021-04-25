@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
@@ -47,7 +47,7 @@ public class UserMockTest {
     }
 
     @Test
-    public void getUserById() {
+    public void getUserByIdTest() {
         List list = new ArrayList();
         list.add(user);
         list.add(user1);
@@ -58,8 +58,8 @@ public class UserMockTest {
         assertEquals(userT.getEmail(), user.getEmail());
     }
 
-    @Test
-    public void addUser() {
+    @Test//????
+    public void addUserTest() {
         List list = new ArrayList();
         list.add(user);
         list.add(user1);
@@ -68,6 +68,14 @@ public class UserMockTest {
         assertEquals(2, userService.getUsers().size());
 
     }
+
+    @Test
+    public void deleteUserTest(){
+        userService.deleteUser(user);
+        verify(userRepo, times(1)).delete(user);
+    }
+
+
 
 
 }

@@ -40,6 +40,11 @@ public class JPAUserService implements UserService, InitializingBean {
     }
 
     @Override
+    public void deleteUser(User user) {
+        userRepo.delete(user);
+    }
+
+    @Override
     public void afterPropertiesSet() throws Exception {
 
     }
