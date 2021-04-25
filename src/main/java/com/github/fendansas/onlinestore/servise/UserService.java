@@ -10,7 +10,7 @@ public interface UserService {
 
     User getUser(Integer id);
 
-    void addUser(List<User> user);
+    void addUser(User user);
 
     void saveUser(User user);
 

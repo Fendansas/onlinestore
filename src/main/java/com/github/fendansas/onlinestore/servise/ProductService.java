@@ -10,7 +10,7 @@ public interface ProductService {
 
     Product getProductById(Integer id);
 
-    void addProduct(Product product);
+    void saveProduct(Product product);
 
     Boolean isProductInStock(Product product, Integer quantityInOrder);
 

@@ -27,7 +27,7 @@ public class JPAProductService implements ProductService, InitializingBean {
     }
 
     @Override
-    public void addProduct(Product product) {
+    public void saveProduct(Product product) {
         repo.save(product);
     }
 

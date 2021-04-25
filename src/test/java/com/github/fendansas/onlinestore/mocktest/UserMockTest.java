@@ -59,6 +59,11 @@ public class UserMockTest {
         assertEquals(userT.getEmail(),user.getEmail());
     }
 
+    @Test
+    public void addUser(){
+
+    }
+
 
 
 
