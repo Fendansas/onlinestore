@@ -5,9 +5,13 @@ import com.github.fendansas.onlinestore.repo.UserRepo;
 import com.github.fendansas.onlinestore.servise.UserService;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Service
+@Transactional
 public class JPAUserService implements UserService, InitializingBean {
 
     @Autowired
