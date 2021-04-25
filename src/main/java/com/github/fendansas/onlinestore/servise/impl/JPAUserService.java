@@ -28,8 +28,8 @@ public class JPAUserService implements UserService, InitializingBean {
     }
 
     @Override
-    public void addUser(User user) {
-        userRepo.save(user);
+    public void addUser(List<User> users) {
+        userRepo.saveAll(users);
 
     }
 
