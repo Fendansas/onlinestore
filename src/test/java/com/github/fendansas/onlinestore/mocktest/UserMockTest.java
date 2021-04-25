@@ -35,6 +35,8 @@ public class UserMockTest {
             "fe2ndansa@mail.ru", "+376244584874",
             new Address(), null, null);
 
+
+
     @Test
     public void getUserTest() {
         List list = new ArrayList();
@@ -43,8 +45,22 @@ public class UserMockTest {
         when(userRepo.findAll()).thenReturn(list);
         assertEquals(2, userService.getUsers().size());
         assertEquals(userService.getUsers().get(0), user);
-
     }
+
+    @Test
+    public  void getUserById(){
+        List list = new ArrayList();
+        list.add(user);
+        list.add(user1);
+        Integer id = user.getId();
+        when(userRepo.getOne(id)).thenReturn(user);
+        User userT = userService.getUser(id);
+        assertEquals(userT,user);
+        assertEquals(userT.getEmail(),user.getEmail());
+    }
+
+
+
 
 
 }
