@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -42,6 +43,11 @@ public class JPAUserService implements UserService, InitializingBean {
     @Override
     public void deleteUser(User user) {
         userRepo.delete(user);
+    }
+
+    @Override
+    public Optional<User> findByEmail(String email) {
+        return Optional.ofNullable(userRepo.findByEmail(email));
     }
 
     @Override

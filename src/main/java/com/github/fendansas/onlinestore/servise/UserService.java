@@ -3,6 +3,7 @@ package com.github.fendansas.onlinestore.servise;
 import com.github.fendansas.onlinestore.domain.User;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserService {
 
@@ -15,5 +16,7 @@ public interface UserService {
     void saveUser(User user);
 
     void deleteUser(User user);
+
+    Optional<User> findByEmail(String email);
 
 }

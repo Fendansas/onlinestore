@@ -13,6 +13,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
@@ -70,9 +71,21 @@ public class UserMockTest {
     }
 
     @Test
-    public void deleteUserTest(){
+    public void deleteUserTest() {
         userService.deleteUser(user);
         verify(userRepo, times(1)).delete(user);
+        assertEquals(false, userRepo.findById(user.getId()).isPresent());
+    }
+
+    @Test
+    public void findByEmailTest() {
+        List list = new ArrayList();
+        list.add(user);
+        list.add(user1);
+        when(userRepo.findByEmail("fendansa@mail.ru")).thenReturn(user);
+        Optional<User> userT = userService.findByEmail("fendansa@mail.ru");
+        String email = userT.get().getEmail();
+        assertEquals(user.getEmail(),email);
     }
 
 
