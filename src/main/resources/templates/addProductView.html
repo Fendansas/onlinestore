@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Getting Started: Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head >
+
+<th:block th:insert="fragments/header.html :: css" />
+
+<body th:style="'background: url(https://images.wallpaperscraft.ru/image/svet_bliki_krugi_fon_bleklyy_46822_1920x1080.jpg) no-repeat center center fixed;'">
+<!--private Integer id;-->
+<!--private String name;-->
+<!--private String description;-->
+<!--private BigDecimal price;-->
+<!--private Integer quantity-->
+
+
+
+
+
+<th:block th:insert="fragments/navBar.html :: navBar" />
+
+<div class="row justify-content-center  p-2	"><strong th:text="#{editproductview.label.details}">Enter product details please... </strong></div>
+
+<form th:action="@{/addProduct/new}" method="post" th:object="${product}">
+
+    <div class="row justify-content-center  p-1">
+        <div class="col-sm  p-1 justify-content-end"
+             style="text-align: right"><strong th:text="#{editproductview.label.name}"> Name : </strong></div>
+        <div class="col-sm  p-1">
+            <input type="text" th:field="*{name}" />
+        </div>
+
+    </div>
+    <!--    <div class="row justify-content-center alert alert-danger" role="alert" th:if="${#fields.hasErrors('name')}" th:errors="*{email}">Name Error</div>-->
+
+    <div class="row justify-content-center  p-1">
+        <div class="col-sm  p-1 justify-content-end"
+             style="text-align: right"><strong th:text="#{editproductview.label.description}">Description : </strong></div>
+        <div class="col-sm  p-1">
+            <input type="text" th:field="*{description}" />
+        </div>
+    </div>
+
+    <!--    <div class="row justify-content-center alert alert-danger" role="alert" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description Error</div>-->
+
+    <div class="row justify-content-center  p-1">
+        <div class="col-sm  p-1 justify-content-end"
+             style="text-align: right"><strong th:text="#{editproductview.label.price}">Price :</strong></div>
+        <div class="col-sm  p-1">
+            <input type="text"  th:field="*{price}" />
+        </div>
+    </div>
+
+    <div class="row justify-content-center alert alert-danger" role="alert" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Name price</div>
+
+    <div class="row justify-content-center  p-1">
+        <div class="col-sm  p-1 justify-content-end"
+             style="text-align: right"><strong th:text="#{editproductview.label.quantity}">Quantity :</strong></div>
+        <div class="col-sm  p-1">
+            <input type="text" th:field="*{quantity}"/>
+            <td th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}">Name
+                Error</td>
+        </div>
+    </div>
+
+    <!--    <div class="row justify-content-center alert alert-danger" role="alert" th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}">quantity Error</div>-->
+
+    <div class="row justify-content-center  p-1">
+        <input class="btn btn-primary" type="submit" value="Add product" />
+    </div>
+</form>
+
+
+
+
+<th:block th:insert="fragments/scripts.html :: js" />
+</body>
+</html>

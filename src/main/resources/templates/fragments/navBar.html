@@ -1,0 +1,78 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<th:block th:fragment="navBar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <a class="navbar-brand" href="#">
+            <img src="https://avatarko.ru/img/kartinka/9/zhivotnye_sobaka_husky_9001.jpg" width="30" height="30"
+                 class="d-inline-block align-top" alt="">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="/" th:text="#{navbar.label.home}">Home
+                    <span class="sr-only">(current)</span>
+                </a></li>
+                <li class="nav-item"><a class="nav-link" href="/productslist" th:text="#{navbar.label.products}">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="/sold" th:text="#{navbar.label.cart}">Cart</a></li>
+                <li class="nav-item"><a class="nav-link" href="/userProducts" th:text="#{navbar.label.purchase}">Purchase history</a></li>
+
+                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item dropdown"><a
+                        class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                        role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false" th:text="#{navbar.label.chose}">Administration</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown-item" th:href="@{/users}" th:text="#{navbar.label.userlist}">User list</a>
+                        <a sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown-item"
+                           th:href="@{/products}" th:text="#{navbar.label.product}">Product</a>
+                        <a sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown-item" th:href="@{/addProduct}" th:text="#{navbar.label.addproduct}">Add product</a>
+                        <a sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown-item" th:href="@{/index1}">404</a>
+                        <!--                        <a class="dropdown-item" href="#">Another action</a>-->
+                        <!--                        <div class="dropdown-divider"></div>-->
+                        <!--                        <a class="dropdown-item" href="#">Something else here</a>-->
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link disabled" href="#"
+                                        tabindex="-1" aria-disabled="true">Disabled</a></li>
+
+
+            </ul>
+
+            <div  class="p-1"><a th:href="@{/?lang=ru}">RUS</a> </div>
+            <div  class="p-1"><a th:href="@{/?lang=en}">EN</a> </div>
+
+
+            <div sec:authorize="!isAuthenticated()">
+                <form class="form-inline my-2 my-lg-0"
+                      th:action="@{/login}" method="get">
+
+                    <a style="color:#ffffff">Hello, Anonymous! </a>
+
+                    <input class="btn btn-success" type="submit" value="Sign In"/>
+                </form>
+            </div>
+
+            <div sec:authorize="isAuthenticated()">
+                <form class="form-inline my-2 my-lg-0"
+                      th:action="@{/logout}" method="post">
+                    <a style="color:#ffffff">Hello, <span
+                            sec:authentication="principal.username">Anonymous  </span>!</a>
+
+                    <input class="btn btn-success" type="submit" value="Sign Out"/>
+
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+</th:block>
+</html>
