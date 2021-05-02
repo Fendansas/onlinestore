@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<th:block th:insert="fragments/header.html :: css"/>
+
+<body th:style="'background: url(https://images.wallpaperscraft.ru/image/svet_bleklyy_fon_85547_1920x1080.jpg) no-repeat center center fixed;'">
+<!--https://look.com.ua/pic/201711/1920x1200/look.com.ua-251976.jpg-->
+<th:block th:insert="fragments/navBar.html :: navBar"/>
+
+</div>
+
+<div class="container">
+    <!--    заголовок таблицы-->
+    <div class="row">
+        <!--        <div style="text-align: center"; class="border col-lg-1"><strong>Id</strong></div>-->
+        <div style="text-align: center" ; class="border col-lg-1"><strong
+                th:text="#{productslist.label.image}">Image</strong></div>
+        <div style="text-align: center" ; class="border col-lg-2">
+            <a class="p-2" th:href="@{'/productslist'+'?fieldName=Name'}"><strong th:text="#{productslist.label.name}">Name</strong></a>
+        </div>
+        <div style="text-align: center" ; class="border col-lg-4"><strong th:text="#{productslist.label.discription}">Description</strong>
+        </div>
+        <div style="text-align: center" ; class="border col-lg-2"><strong
+                th:text="#{productslist.label.price}">Price</strong></div>
+        <div style="text-align: center" ; class="border col-lg-1"><strong th:text="#{productslist.label.instock}">In
+            Stock</strong></div>
+        <div style="text-align: center" ; class="border col-lg-2"><strong th:text="#{productslist.label.addtocart}">Add
+            to cart</strong></div>
+
+    </div>
+
+    <!--           Внутрянка таблицы-->
+
+    <div class="row" th:each="product : ${products}">
+
+        <!--        <div style="text-align: center"; class="border col-lg-1" th:text="${product.id}"></div>-->
+
+        <div class="border justify-content-center col-lg-1 p-1">
+            <img th:src="@{/products/{uid}/img(uid=${product.id})}" width="75"
+                 height="75" alt="">
+        </div>
+
+        <div style="text-align: center" ; class="border col-lg-2" th:text="${product.name}"></div>
+        <div style="text-align: center" ; class="border col-lg-4" th:text="${product.description}"></div>
+        <div style="text-align: center" ; class="border col-lg-2" th:text="${product.price}"></div>
+        <div style="text-align: center" ; class="border col-lg-1" th:text="${product.inStockQuantity}"></div>
+        <div style="text-align: center" ; class="border col-lg-2">
+            <a class="btn btn-link"
+               th:href="@{/products/order/{uid}?inStockQuantity=1(uid=${product.id})}"
+               th:text="#{productslist.label.addtocart}">Add to cart</a>
+
+        </div>
+    </div>
+
+    <!--    th:styleappend="'background-color: green'"-->
+    <!-- Старницы-->
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <div class="row p-2">
+                Choose page: <span th:each="i: ${#numbers.sequence(1,totalPages)}">
+
+				<a class="p-2" th:if="${currentPage + 1 != i}"
+                   th:href="@{'/productslist'+'?pn='+${i}}">[[${i}]]</a> <span class="p-2 "
+                                                                               th:unless="${currentPage + 1 != i}">[[${i}]]</span>
+			</span>
+
+            </div>
+        </ul>
+    </nav>
+</div>
+<br/>
+<br/>
+
+
+<th:block th:insert="fragments/scripts.html :: js"/>
+
+
+</body>
+</html>
