@@ -12,52 +12,7 @@
     <title>Hello, world!</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">
-        <img src="https://svgsilh.com/svg_v2/2087470.svg" wight="30" height="30" alt="logo">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggler="collapse"
-            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-    aria-label="Togglenavigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a href="#" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Products</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">About us</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li><a class="dropdown-item" th:href="@{/addProduct}">Add product</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-            </li>
-
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input type="text" class="from-control mr-sm-2" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
-        </form>
-        <form class="form-inline my-2 my-lg-0"
-              th:action="@{/login}" method="get">
-
-            <a style="color:#ffffff">Hello, Anonymous! </a>
-
-            <input class="btn btn-success" type="submit" value="Sign In"/>
-        </form>
-    </div>
-</nav>
+<th:block th:insert="fragments/navBar.html :: navBar" />
 
 <h1>Hello, world!</h1>
 
