@@ -5,49 +5,34 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <th:block th:fragment="navBar">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a href="#" class="navbar-brand">
+        <a th:href="@{/}" class="navbar-brand">
             <img src="https://svgsilh.com/svg_v2/2087470.svg" wight="30" height="30" alt="logo">
         </a>
-        <button class="navbar-toggler" type="button" data-toggler="collapse"
-                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Togglenavigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a th:href="@{/}" class="nav-link">Home</a>
+                    <a class="nav-link" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Products</a>
+                    <a class="nav-link" href="#">Features</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">About us</a>
+                    <a class="nav-link" href="#">Pricing</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Menu
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                        <li><a class="dropdown-item" th:href="@{/addProduct}">Add product</a></li>
-                        <li><a class="dropdown-item" th:href="@{/productslist}">Products list</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" th:href="@{/addProduct}">Add product</a>
+                        <a class="dropdown-item" th:href="@{/productslist}">Products list</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input type="text" class="from-control mr-sm-2" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
-            </form>
-            <form class="form-inline my-2 my-lg-0"
-                  th:action="@{/login}" method="get">
-
-                <a style="color:#ffffff">Hello, Anonymous! </a>
-
-                <input class="btn btn-success" type="submit" value="Sign In"/>
-            </form>
         </div>
     </nav>
 
