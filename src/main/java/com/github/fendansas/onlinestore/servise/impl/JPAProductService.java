@@ -5,6 +5,10 @@ import com.github.fendansas.onlinestore.repo.ProductRepo;
 import com.github.fendansas.onlinestore.servise.ProductService;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,6 +44,21 @@ public class JPAProductService implements ProductService, InitializingBean {
         }
         return false;
     }
+
+    @Override
+    public Page<Product> getProductPage(Integer pageNum, Integer size, String fieldName, Sort.Direction direction) {
+        Pageable pagable;
+        if (fieldName != null) {
+            if (direction == null)
+                direction = Sort.Direction.ASC;
+            pagable = PageRequest.of(pageNum, size, direction, fieldName);
+        } else {
+            pagable = PageRequest.of(pageNum, size);
+        }
+
+        return repo.findAll(pagable);
+    }
+
 
     @Override
     public void afterPropertiesSet() throws Exception {

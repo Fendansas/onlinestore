@@ -1,4 +1,6 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
+<!doctype html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <th:block th:fragment="navBar">
@@ -15,7 +17,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a href="#" class="nav-link">Home</a>
+                    <a th:href="@{/}" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">Products</a>
@@ -24,16 +26,16 @@
                     <a href="#" class="nav-link">About us</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
                         Dropdown
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                         <li><a class="dropdown-item" th:href="@{/addProduct}">Add product</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" th:href="@{/productslist}">Products list</a></li>
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </li>
-
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input type="text" class="from-control mr-sm-2" placeholder="Search" aria-label="Search">
@@ -51,4 +53,5 @@
 
 
 </th:block>
+
 </html>

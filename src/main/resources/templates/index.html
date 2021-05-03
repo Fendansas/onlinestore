@@ -1,21 +1,54 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<th:block th:fragment="navBar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a href="#" class="navbar-brand">
+            <img src="https://svgsilh.com/svg_v2/2087470.svg" wight="30" height="30" alt="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggler="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Togglenavigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-<th:block th:insert="fragments/header.html :: css" />
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a th:href="@{/}" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">About us</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li><a class="dropdown-item" th:href="@{/addProduct}">Add product</a></li>
+                        <li><a class="dropdown-item" th:href="@{/productslist}">Products list</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input type="text" class="from-control mr-sm-2" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
+            </form>
+            <form class="form-inline my-2 my-lg-0"
+                  th:action="@{/login}" method="get">
 
-<body th:style="'background: url(https://img3.goodfon.ru/original/1920x1080/e/f3/barrett-m82-samozaryadnaya-2610.jpg) no-repeat center center fixed;'">
+                <a style="color:#ffffff">Hello, Anonymous! </a>
 
-<th:block th:insert="fragments/navBar.html :: navBar" />
-<p><font size="1" color="white"  >Make your</font>  <font size="1" color="red" >choice,</font><font size="1" color="white" > buy AWP</font> </p>
+                <input class="btn btn-success" type="submit" value="Sign In"/>
+            </form>
+        </div>
+    </nav>
 
 
-
-<th:block th:insert="fragments/scripts.html :: js" />
-
-</body>
+</th:block>
 </html>
