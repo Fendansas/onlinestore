@@ -55,7 +55,6 @@ public class JPAProductService implements ProductService, InitializingBean {
         } else {
             pagable = PageRequest.of(pageNum, size);
         }
-
         return repo.findAll(pagable);
     }
 
