@@ -39,6 +39,6 @@ public class AddProduct {
             return "redirect:/addProduct";
         }
         productService.saveProduct(conversionService.convert(productDTO, Product.class));
-        return "redirect:/products";
+        return "redirect:/productslist";
     }
 }
