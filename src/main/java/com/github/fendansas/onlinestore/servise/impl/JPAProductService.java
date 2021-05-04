@@ -52,7 +52,7 @@ public class JPAProductService implements ProductService, InitializingBean {
                                         Sort.Direction direction) {
         Pageable pagable;
         if (fieldName != null) {
-            if (direction == null){
+            if (direction == null) {
                 direction = Sort.Direction.ASC;
             }
             pagable = PageRequest.of(pageNum, size, direction, fieldName);

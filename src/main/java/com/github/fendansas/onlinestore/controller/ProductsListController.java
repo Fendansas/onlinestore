@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 @Controller
 public class ProductsListController {
 
-    static private final Integer SIZE = 5;
+    static final Integer SIZE = 5;
 
     @Autowired
     private ProductRepo productRepo;
