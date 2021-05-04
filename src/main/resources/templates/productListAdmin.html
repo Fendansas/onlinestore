@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Products List admin</title>
+</head>
+<body>
+<th:block th:insert="fragments/navBar.html :: navBar"/>
+
+
+<!--                                  START-->
+<div class="container">
+    <!--    заголовок таблицы-->
+    <div class="row">
+        <div style="text-align: center" ; class="border col-lg-1"><strong>Id</strong></div>
+<!--        <div style="text-align: center" ; class="border col-lg-1"><strong>Image</strong></div>-->
+        <div style="text-align: center" ; class="border col-lg-1">
+            <a class="p-2" th:href="@{'/products'+'?fieldName=Name'}"><strong>Name</strong></a>
+        </div>
+        <div style="text-align: center" ; class="border col-lg-2"><strong>Description</strong></div>
+        <div style="text-align: center" ; class="border col-lg-2"><strong>Price</strong></div>
+        <div style="text-align: center" ; class="border col-lg-2"><strong>In Stock</strong></div>
+        <div style="text-align: center" ; class="border col-lg-2"><strong>Edit</strong></div>
+        <div style="text-align: center" ; class="border col-lg-2"><strong>Delete</strong></div>
+<!--        <div style="text-align: center" ; class="border col-lg-3"><strong>Upload img</strong></div>-->
+
+    </div>
+
+    <!--           Внутрянка таблицы-->
+
+    <div class="row" th:each="product : ${products}">
+        <div class="border col-lg-1" th:text="${product.id}"></div>
+<!--                       Картинка-->
+<!--        <div class="border justify-content-center col-lg-1 p-1">-->
+<!--            <img th:src="@{/products/{uid}/img(uid=${product.id})}" width="75"-->
+<!--                 height="75" alt="">-->
+<!--        </div>-->
+
+        <div class="border col-lg-1" th:text="${product.name}"></div>
+        <div class="border col-lg-2" th:text="${product.description}"></div>
+        <div class="border col-lg-2" th:text="${product.price}"></div>
+        <div class="border col-lg-2" th:text="${product.inStockQuantity}"></div>
+
+        <a class="border col-lg-2"
+           th:href="@{/products/edit/{uid}(uid=${product.id})}">Edit</a>
+
+
+        <!--        <a class="border col-lg-1" th:href="@{'/deleteproduct/'+${product.id}}"> del</a>-->
+        <a class="border col-lg-2" th:href="@{'/deleteproduct/'+${product.id}}">Delete</a>
+
+<!--                       Загрузка картинки-->
+<!--        <div class="border col-lg-3">-->
+<!--            <form method="POST" enctype="multipart/form-data"-->
+<!--                  th:action="@{/products/{uid}/img(uid=${product.id})}">-->
+<!--                &lt;!&ndash; <div class="custom-file">    class="custom-file-input" class="custom-file-label"&ndash;&gt;-->
+<!--                <div class="custom-file">-->
+<!--                    <div class="col-lg-7 p-2">-->
+<!--                        <input class="custom-file-input" type="file" name="file"-->
+<!--                               id="inputGroupFile04"> <label class="custom-file-label"-->
+<!--                                                             for="inputGroupFile04">Choose file</label>-->
+<!--                    </div>-->
+<!--                    <input type="submit" value="Upload"/>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+
+
+    </div>
+
+    <!--    th:styleappend="'background-color: green'"-->
+    <!-- Старницы-->
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <div class="row p-2">
+                Choose page: <span th:each="i: ${#numbers.sequence(1,totalPages)}">
+
+				<a class="p-2" th:if="${currentPage + 1 != i}" th:href="@{'/productslist'+'?pn='+${i}}">
+                    [[${i}]]
+                </a>
+                <span class="p-2 " th:unless="${currentPage + 1 != i}">
+                    [[${i}]]
+                </span>
+			</span>
+
+            </div>
+        </ul>
+    </nav>
+</div>
+<!--                             END-->
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
