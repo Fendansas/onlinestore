@@ -1,6 +1,8 @@
 package com.github.fendansas.onlinestore.servise.impl;
 
 import com.github.fendansas.onlinestore.domain.Product;
+import com.github.fendansas.onlinestore.dto.ProductDTO;
+import com.github.fendansas.onlinestore.exception.ProductNotFoundException;
 import com.github.fendansas.onlinestore.repo.ProductRepo;
 import com.github.fendansas.onlinestore.servise.ProductService;
 import org.springframework.beans.factory.InitializingBean;
@@ -62,6 +64,16 @@ public class JPAProductService implements ProductService, InitializingBean {
         return repo.findAll(pagable);
     }
 
+    @Override
+    public void edit(ProductDTO productDTO) {
+        Product findById = repo.findById(productDTO.getId()).orElseThrow(() -> new ProductNotFoundException());
+        findById.setName(productDTO.getName());
+        findById.setDescription(productDTO.getDescription());
+        findById.setPrice(productDTO.getPrice());
+        findById.setInStockQuantity(productDTO.getInStockQuantity());
+
+        repo.save(findById);
+    }
 
     @Override
     public void afterPropertiesSet() throws Exception {

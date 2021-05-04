@@ -10,11 +10,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -64,6 +63,36 @@ public class ProductListAdminController {
     public String deleteProduct(@PathVariable("id") Integer id){
         productRepo.deleteById(id);
         return "redirect:/productlistadmin";
+    }
+
+    @GetMapping("/productlistadmin/edit/{id}")
+    // @PreAuthorize("@editUserVouter.checkUserId(authentication,#id)")
+    public String editProductForm(@PathVariable Integer id, Model model) {
+
+        model.addAttribute("product", productService.getProductById(id));
+
+        return "editProductView";
+    }
+
+
+    @PostMapping("/productlistadmin/edit/{id}")
+    public String editProduct(@PathVariable Integer id, @Valid ProductDTO productDTO, BindingResult br, Model model) {
+
+        if (br.hasErrors()) {
+            model.addAttribute("productDTO", productDTO);
+            return "redirect:/productlistadmin/edit/{id} ";
+        }
+
+        Product product = new Product();
+        product.setId(id);
+        product.setName(productDTO.getName());
+        product.setDescription(productDTO.getDescription());
+        product.setPrice(productDTO.getPrice());
+        product.setInStockQuantity(productDTO.getInStockQuantity());
+
+        productService.edit(productDTO);
+
+        return "redirect:/products";
     }
 
 

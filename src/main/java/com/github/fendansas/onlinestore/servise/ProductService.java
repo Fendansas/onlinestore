@@ -1,6 +1,7 @@
 package com.github.fendansas.onlinestore.servise;
 
 import com.github.fendansas.onlinestore.domain.Product;
+import com.github.fendansas.onlinestore.dto.ProductDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 
@@ -22,5 +23,5 @@ public interface ProductService {
                                  String fieldName,
                                  Sort.Direction direction);
 
-
+    void edit(ProductDTO productDTO);
 }
