@@ -66,7 +66,8 @@ public class JPAProductService implements ProductService, InitializingBean {
 
     @Override
     public void edit(ProductDTO productDTO) {
-        Product findById = repo.findById(productDTO.getId()).orElseThrow(() -> new ProductNotFoundException());
+        Product findById = repo.findById(productDTO.getId())
+                .orElseThrow(() -> new ProductNotFoundException());
         findById.setName(productDTO.getName());
         findById.setDescription(productDTO.getDescription());
         findById.setPrice(productDTO.getPrice());

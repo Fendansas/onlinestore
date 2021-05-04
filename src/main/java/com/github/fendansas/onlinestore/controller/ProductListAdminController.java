@@ -11,7 +11,11 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -60,7 +64,7 @@ public class ProductListAdminController {
 
     //Удаление
     @RequestMapping(path = "/deleteproduct/{id}")
-    public String deleteProduct(@PathVariable("id") Integer id){
+    public String deleteProduct(@PathVariable("id") Integer id) {
         productRepo.deleteById(id);
         return "redirect:/productListAdmin";
     }
