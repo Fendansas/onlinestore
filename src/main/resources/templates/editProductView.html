@@ -21,13 +21,13 @@
 
 <div class="row justify-content-center  p-2	"><strong>Enter product details please... </strong></div>
 
-<form th:action="@{/products/edit/{id}(id=${product.id})}" method="post" th:object="${product}">
+<form th:action="@{/productListAdmin/edit/{id}(id=${product.id})}" method="post" th:object="${product}">
 
     <div class="row justify-content-center  p-1">
         <div class="col-sm  p-1 justify-content-end"
              style="text-align: right"><strong>Name :</strong></div>
         <div class="col-sm  p-1">
-            <input type="text" th:field="*{name}" />
+            <input type="text" th:field="*{name}"/>
         </div>
     </div>
 
@@ -67,7 +67,7 @@
         </div>
     </div>
 
-    <div class="row justify-content-center alert alert-danger" role="alert" th:if="${#fields.hasErrors('quantity')}" th:errors="*{inStockQuantity}">
+    <div class="row justify-content-center alert alert-danger" role="alert" th:if="${#fields.hasErrors('inStockQuantity')}" th:errors="*{inStockQuantity}">
         Quantity Error
     </div>
 
