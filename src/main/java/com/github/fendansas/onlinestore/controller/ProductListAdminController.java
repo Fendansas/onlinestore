@@ -4,7 +4,6 @@ import com.github.fendansas.onlinestore.domain.Product;
 import com.github.fendansas.onlinestore.dto.ProductDTO;
 import com.github.fendansas.onlinestore.repo.ProductRepo;
 import com.github.fendansas.onlinestore.servise.ProductService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.data.domain.Page;
@@ -20,7 +19,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
-public class ProductsListController {
+public class ProductListAdminController {
 
     static final Integer SIZE = 5;
 
@@ -33,7 +32,7 @@ public class ProductsListController {
     @Autowired
     private ConversionService conversionService;
 
-    @GetMapping("/productslist")
+    @GetMapping("/productlistadmin")
     public String getAllProducts(@RequestParam(required = false, name = "pn") Integer pageNum,
                                  @RequestParam(required = false,
                                          name = "sort") Sort.Direction sortDirection,
@@ -57,6 +56,16 @@ public class ProductsListController {
         model.addAttribute("totalPages", productPage.getTotalPages());
         model.addAttribute("fieldName", sortField);
         model.addAttribute("sort", sortDirection);
-        return "productslist";
+        return "productlistadmin";
     }
+
+    //Удаление
+    @RequestMapping(path = "/deleteproduct/{id}")
+    public String deleteProduct(@PathVariable("id") Integer id){
+        productRepo.deleteById(id);
+        return "redirect:/productlistadmin";
+    }
+
+
+
 }
