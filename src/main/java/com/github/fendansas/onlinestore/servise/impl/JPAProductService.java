@@ -46,11 +46,15 @@ public class JPAProductService implements ProductService, InitializingBean {
     }
 
     @Override
-    public Page<Product> getProductPage(Integer pageNum, Integer size, String fieldName, Sort.Direction direction) {
+    public Page<Product> getProductPage(Integer pageNum,
+                                        Integer size,
+                                        String fieldName,
+                                        Sort.Direction direction) {
         Pageable pagable;
         if (fieldName != null) {
-            if (direction == null)
+            if (direction == null){
                 direction = Sort.Direction.ASC;
+            }
             pagable = PageRequest.of(pageNum, size, direction, fieldName);
         } else {
             pagable = PageRequest.of(pageNum, size);

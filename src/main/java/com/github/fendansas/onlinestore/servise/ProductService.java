@@ -17,7 +17,10 @@ public interface ProductService {
     Boolean isProductInStock(Product product, Integer quantityInOrder);
 
     //Page Products
-    Page<Product> getProductPage(Integer pageNum, Integer size, String fieldName, Sort.Direction direction);
+    Page<Product> getProductPage(Integer pageNum,
+                                 Integer size,
+                                 String fieldName,
+                                 Sort.Direction direction);
 
 
 }

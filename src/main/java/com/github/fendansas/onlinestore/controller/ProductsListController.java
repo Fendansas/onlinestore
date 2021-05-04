@@ -4,7 +4,7 @@ import com.github.fendansas.onlinestore.domain.Product;
 import com.github.fendansas.onlinestore.dto.ProductDTO;
 import com.github.fendansas.onlinestore.repo.ProductRepo;
 import com.github.fendansas.onlinestore.servise.ProductService;
-import io.swagger.models.auth.In;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.data.domain.Page;
@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 @Controller
 public class ProductsListController {
 
-    static public final Integer SIZE = 5;
+    static private final Integer SIZE = 5;
 
     @Autowired
     private ProductRepo productRepo;
@@ -33,14 +33,19 @@ public class ProductsListController {
 
     @GetMapping("/productslist")
     public String getAllProducts(@RequestParam(required = false, name = "pn") Integer pageNum,
-                                 @RequestParam(required = false, name = "sort") Sort.Direction sortDirection,
-                                 @RequestParam(required = false, name = "fileName") String sortField, Model model) {
+                                 @RequestParam(required = false,
+                                         name = "sort") Sort.Direction sortDirection,
+                                 @RequestParam(required = false,
+                                         name = "fileName") String sortField, Model model) {
         if (pageNum == null) {
             pageNum = Integer.valueOf(0);
         } else {
             pageNum -= 1;
         }
-        Page<Product> productPage = productService.getProductPage(pageNum, SIZE, sortField, sortDirection);
+        Page<Product> productPage = productService.getProductPage(pageNum,
+                SIZE,
+                sortField,
+                sortDirection);
 
         List<ProductDTO> productDTOS = productPage.get().map(p -> conversionService.
                 convert(p, ProductDTO.class)).
