@@ -31,7 +31,7 @@ public class ProductListAdminController {
     @Autowired
     private ConversionService conversionService;
 
-    @GetMapping("/productlistadmin")
+    @GetMapping("/productListAdmin")
     public String getAllProducts(@RequestParam(required = false, name = "pn") Integer pageNum,
                                  @RequestParam(required = false,
                                          name = "sort") Sort.Direction sortDirection,
@@ -55,17 +55,17 @@ public class ProductListAdminController {
         model.addAttribute("totalPages", productPage.getTotalPages());
         model.addAttribute("fieldName", sortField);
         model.addAttribute("sort", sortDirection);
-        return "productlistadmin";
+        return "productListAdmin";
     }
 
     //Удаление
     @RequestMapping(path = "/deleteproduct/{id}")
     public String deleteProduct(@PathVariable("id") Integer id){
         productRepo.deleteById(id);
-        return "redirect:/productlistadmin";
+        return "redirect:/productListAdmin";
     }
 
-    @GetMapping("/productlistadmin/edit/{id}")
+    @GetMapping("/productListAdmin/edit/{id}")
     // @PreAuthorize("@editUserVouter.checkUserId(authentication,#id)")
     public String editProductForm(@PathVariable Integer id, Model model) {
 
@@ -75,12 +75,15 @@ public class ProductListAdminController {
     }
 
 
-    @PostMapping("/productlistadmin/edit/{id}")
-    public String editProduct(@PathVariable Integer id, @Valid ProductDTO productDTO, BindingResult br, Model model) {
+    @PostMapping("/productListAdmin/edit/{id}")
+    public String editProduct(@PathVariable Integer id,
+                              @Valid ProductDTO productDTO,
+                              BindingResult br,
+                              Model model) {
 
         if (br.hasErrors()) {
             model.addAttribute("productDTO", productDTO);
-            return "redirect:/productlistadmin/edit/{id} ";
+            return "redirect:/productListAdmin/edit/{id} ";
         }
 
         Product product = new Product();
@@ -92,7 +95,7 @@ public class ProductListAdminController {
 
         productService.edit(productDTO);
 
-        return "redirect:/products";
+        return "redirect:/productListAdmin";
     }
 
 
