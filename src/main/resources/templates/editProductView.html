@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Edit product</title>
+</head>
+
+
+
+<body>
+<th:block th:insert="fragments/navBar.html :: navBar"/>
+
+<div class="row justify-content-center  p-2	"><strong>Enter product details please... </strong></div>
+
+<form th:action="@{/products/edit/{id}(id=${product.id})}" method="post" th:object="${product}">
+
+    <div class="row justify-content-center  p-1">
+        <div class="col-sm  p-1 justify-content-end"
+             style="text-align: right"><strong>Name :</strong></div>
+        <div class="col-sm  p-1">
+            <input type="text" th:field="*{name}" />
+        </div>
+    </div>
+
+    <div class="row justify-content-center alert alert-danger" role="alert" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">
+        Name Error
+    </div>
+
+    <div class="row justify-content-center  p-1">
+        <div class="col-sm  p-1 justify-content-end"
+             style="text-align: right"><strong>Description :</strong></div>
+        <div class="col-sm  p-1">
+            <input type="text" th:field="*{description}" />
+        </div>
+    </div>
+
+    <div class="row justify-content-center alert alert-danger" role="alert" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">
+        Description Error
+    </div>
+
+    <div class="row justify-content-center  p-1">
+        <div class="col-sm  p-1 justify-content-end"
+             style="text-align: right"><strong>Price :</strong></div>
+        <div class="col-sm  p-1">
+            <input type="text"  th:field="*{price}" />
+        </div>
+    </div>
+
+    <div class="row justify-content-center alert alert-danger" role="alert" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">
+        Price Error
+    </div>
+
+    <div class="row justify-content-center  p-1">
+        <div class="col-sm  p-1 justify-content-end"
+             style="text-align: right"><strong>Quantity :</strong></div>
+        <div class="col-sm  p-1">
+            <input type="text"  th:field="*{inStockQuantity}" />
+        </div>
+    </div>
+
+    <div class="row justify-content-center alert alert-danger" role="alert" th:if="${#fields.hasErrors('quantity')}" th:errors="*{inStockQuantity}">
+        Quantity Error
+    </div>
+
+    <div class="row justify-content-center  p-1">
+        <input class="btn btn-primary" type="submit" value="Edit" />
+    </div>
+</form>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>
