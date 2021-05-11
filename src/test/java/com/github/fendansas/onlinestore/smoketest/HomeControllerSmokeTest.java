@@ -34,9 +34,12 @@ public class HomeControllerSmokeTest {
 
     @Test
     public void shouldReturnDefaultMessage() throws Exception {
-        this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
-                .andExpect((ResultMatcher) content().string(containsString("Home")));
+        this.mockMvc.perform(get("/"))
+                .andDo(print()) // пишет лог
+                .andExpect(status().isOk());
     }
+
+
 
 
 }
